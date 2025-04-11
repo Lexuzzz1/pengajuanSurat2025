@@ -1,7 +1,7 @@
 <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
         <a href="{{ route('dashboard') }}">
-            <img src="assets/images/logo/logo.svg" alt="logo"/>
+            <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="logo"/>
         </a>
     </div>
     <nav class="sidebar-nav">
@@ -19,16 +19,9 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item nav-item-has-children">
-                <a
-                    href="#0"
-                    class="collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#ddmenu_2"
-                    aria-controls="ddmenu_2"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
+            @if (Auth::user()->role->name == 'admin')
+                <li class="nav-item">
+                    <a href="{{ route('user') }}">
               <span class="icon">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -37,17 +30,10 @@
                       d="M13.125 2.29167L16.0417 5.20834H14.1667C13.5913 5.20834 13.125 4.74197 13.125 4.16667V2.29167Z"/>
                 </svg>
               </span>
-                    <span class="text">Pages</span>
-                </a>
-                <ul id="ddmenu_2" class="collapse dropdown-nav">
-                    <li>
-                        <a href="settings.html"> Settings </a>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"> Blank Page </a>
-                    </li>
-                </ul>
-            </li>
+                        <span class="text">Users</span>
+                    </a>
+                </li>
+            @endif
             <li class="nav-item">
                 <a href="invoice.html">
               <span class="icon">
