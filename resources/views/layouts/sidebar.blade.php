@@ -1,20 +1,13 @@
 <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
-        <a href="index.html">
+        <a href="{{ route('dashboard') }}">
             <img src="assets/images/logo/logo.svg" alt="logo"/>
         </a>
     </div>
     <nav class="sidebar-nav">
         <ul>
-            <li class="nav-item nav-item-has-children">
-                <a
-                    href="#0"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#ddmenu_1"
-                    aria-controls="ddmenu_1"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
+            <li class="nav-item">
+                <a href="{{ route('dashboard') }}">
               <span class="icon">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -25,11 +18,6 @@
               </span>
                     <span class="text">Dashboard</span>
                 </a>
-                <ul id="ddmenu_1" class="collapse show dropdown-nav">
-                    <li>
-                        <a href="index.html" class="active"> eCommerce </a>
-                    </li>
-                </ul>
             </li>
             <li class="nav-item nav-item-has-children">
                 <a
