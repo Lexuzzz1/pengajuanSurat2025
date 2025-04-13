@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css')}} "/>
     <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}"/>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 

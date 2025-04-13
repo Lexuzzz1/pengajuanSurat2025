@@ -20,22 +20,12 @@
                                 <div class="info">
                                     <div>
                                         <h6 class="fw-500">{{ Auth::user()->name }}</h6>
-                                        <p class="text-capitalize">{{ Auth::user()->role->name }}</p>
+                                        <p>{{ Auth::user()->email }}</p>
                                     </div>
                                 </div>
                             </div>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
-                            <li>
-                                <div class="author-info flex items-center !p-1">
-                                    <div class="content">
-                                        <h4 class="text-sm">{{ Auth::user()->name }}</h4>
-                                        <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs"
-                                           href="#">{{ Auth::user()->email }}</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="divider"></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

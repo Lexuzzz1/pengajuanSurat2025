@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SuratController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\JenisSuratController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -22,8 +24,25 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    // ----------------- User -----------------------
     Route::get('/user', [UserController::class, 'index'])->name('user');
     Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user', [UserController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::put('/user/{user}/role', [UserController::class, 'updateRole'])->name('user.role');
+    // ----------------- Jenis Surat -----------------------
+    Route::get('/jenisSurat', [JenisSuratController::class, 'index'])->name('jenisSurat');
+    Route::get('/jenisSurat/create', [JenisSuratController::class, 'create'])->name('jenisSurat.create');
+    Route::post('/jenisSurat', [JenisSuratController::class, 'store'])->name('jenisSurat.store');
+    Route::get('/jenisSurat/{jenisSurat}/edit}',[JenisSuratController::class, 'edit'])->name('jenisSurat.edit');
+    Route::put('/jenisSurat/{jenisSurat}', [JenisSuratController::class, 'update'])->name('jenisSurat.update');
+    Route::put('jenisSurat/{jenisSurat}/status', [JenisSuratController::class, 'updateStatus'])->name('jenisSurat.status');
+
+});
+
+Route::middleware(['auth', 'role:mahasiswa'])->group(function () {
+    Route::get('/surat', [SuratController::class, 'index'])->name('surat');
 });
 
 require __DIR__.'/auth.php';

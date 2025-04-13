@@ -14,8 +14,7 @@
             <!-- end col-->
             <div class="col-md-6">
                 <div class="terms d-flex justify-content-center justify-content-md-end">
-                    <a href="#0" class="text-sm">Term & Conditions</a>
-                    <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
+                    <p href="#0" class="text-sm ml-15">Pengajuan Surat 2025</p>
                 </div>
             </div>
         </div>

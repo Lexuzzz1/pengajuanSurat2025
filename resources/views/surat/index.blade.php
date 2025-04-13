@@ -5,7 +5,7 @@
     <div class="title-wrapper pt-30">
         <div class="row align-items-center">
             <div class="title">
-                <h2 class="text-2xl font-semibold text-gray-800">Data Users</h2>
+                <h2 class="text-2xl font-semibold text-gray-800">Data Pengajuan Surat</h2>
             </div>
             <!-- end col -->
         </div>
@@ -81,10 +81,8 @@
                                     </td>
                                     <td>
                                         <div class="action">
-                                            <button class="text-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#updateModal"
-                                                    data-id="{{$user->id}}">
-                                                <i class="lni lni-eye"></i>
+                                            <button class="text-danger">
+                                                <i class="lni lni-trash-can"></i>
                                             </button>
                                         </div>
                                     </td>
@@ -102,42 +100,4 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete User</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="p-0 pb-1 m-0"> Apakah anda akan mengganti role user ini?</p>
-                    <p class="fst-italic modal-keterangan">Role dapat diubah kembali</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <form method="post" action="" class="d-inline" id="updateForm">
-                        @method('PUT')
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Change</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Modal -->
 @endsection
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const updateModal = document.getElementById('updateModal');
-        updateModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget;
-            const userId = button.getAttribute('data-id');
-            const form = updateModal.querySelector('#updateForm');
-
-            form.action = `/user/${userId}/role`;
-        });
-    });
-</script>
