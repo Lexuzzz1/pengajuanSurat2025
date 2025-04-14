@@ -25,14 +25,14 @@
                         <div class="input-style-1">
                             <label>NRP</label>
                             <input name="nrp" type="text" placeholder="NRP" value="{{ old('nrp', $user->nrp) }}"
-                                   required/>
+                                   required readonly/>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="input-style-1">
                             <x-input-label for="email" :value="__('Email')"/>
                             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
-                                          :value="old('email', $user->email)" required autocomplete="username"
+                                          :value="old('email', $user->email)" required readonly autocomplete="username"
                                           placeholder="email@ex.com"/>
                             <x-input-error :messages="$errors->get('email')" class="mt-2"/>
 

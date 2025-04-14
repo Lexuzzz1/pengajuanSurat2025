@@ -41,8 +41,22 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 });
 
+// mahasiswa
 Route::middleware(['auth', 'role:mahasiswa'])->group(function () {
-    Route::get('/surat', [SuratController::class, 'index'])->name('surat');
+    Route::get('/surat/create', [SuratController::class, 'create'])->name('surat.create');
+    Route::post('/surat', [SuratController::class, 'store'])->name('surat.store');
+    Route::get('/surat/history', [SuratController::class, 'history'])->name('surat.history');
 });
+
+//kaprodi
+Route::middleware(['auth', 'role:kaprodi'])->group(function () {
+    Route::get('/pengajuanSurat', [SuratController::class, 'kaprodiIndex'])->name('kaprodi.index');
+    Route::get('/pengajuanSurat/{surat}/edit', [SuratController::class, 'kaprodiEdit'])->name('kaprodi.edit');
+    Route::put('/pengajuanSurat/{surat}', [SuratController::class, 'kaprodiUpdate'])->name('kaprodi.update');
+    Route::get('/pengajuanSurat/history', [SuratController::class, 'kaprodiHistory'])->name('kaprodi.history');
+});
+
+
+
 
 require __DIR__.'/auth.php';

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Surat extends Model
 {
     protected $table = 'surat';
-    protected $fillable = ['status', 'jenis_surat_id', 'users_id'];
+    protected $fillable = ['status', 'jenis_surat_id', 'user_id'];
 
     public function jenisSurat(){
         return $this->belongsTo(JenisSurat::class);

@@ -93,9 +93,9 @@
                         </div>
                     </div>
                 </div>
-                <x-primary-button class="btn btn-primary">
+                <button class="btn btn-primary">
                     {{ __('Register') }}
-                </x-primary-button>
+                </button>
             </form>
         </div>
     </div>

@@ -27,7 +27,7 @@
                         </div>
                         <div class="header-search d-none d-md-flex">
                             <form method="GET" action="{{ route('user') }}">
-                                <input name="email" type="text" placeholder="Search..." value="{{ request('email')}}"/>
+                                <input name="email" type="text" placeholder="Search By Email" value="{{ request('email')}}"/>
                                 <button><i class="lni lni-search-alt"></i></button>
                             </form>
                         </div>
