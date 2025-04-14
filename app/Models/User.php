@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'nrp',
         'name',
         'email',
         'password',
+        'program_studi_id',
+        'role_id'
     ];
 
     /**
@@ -44,5 +47,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
+
+    public function programStudi(){
+        return $this->belongsTo(ProgramStudi::class);
+    }
+
+    public function surat(){
+        return $this->hasMany(Surat::class);
     }
 }
